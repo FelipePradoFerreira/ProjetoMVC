@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+<div class="login">
+    <div class="container">
+        <div class="Tela-Login">
+            <div class="tela-login">
+                <p>
+                    <h4 class="text-center" id="sub-title">Acesso de Funcionários</h4>
+                </p>
+                <form method="post">
+                    <div>
+                        <div class="text-left">
+                            <label>Login:<br /></label>
+                            <input type="text" class="form-control" placeholder="Nome" name="login" required />
+                        </div>
+                    </div>
+                    @if (ViewBag.erroLogin != null)
+                    {
+                        <div class="alert alert-danger text-left" role="alert">
+                        <strong>Erro!</strong> @ViewBag.erroLogin
+                        </div>
+                    }
+                    <div>
+                        <div class="text-left">
+                            <label>Senha:<br /></label>
+                            <input type="password" class="form-control" placeholder="Password" name="senha" required />
+                        </div>
+                    </div>
+                    @if (ViewBag.erroSenha != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Erro!</strong> - @ViewBag.erroSenha
+                        </div>
+                    }
+                    <div class="text-center">
+                        <button class="btn btn-default" type="submit">Avançar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

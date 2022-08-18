@@ -1,0 +1,136 @@
+﻿@model IEnumerable<Frekisa.Models.Clientes>
+
+@{
+    ViewBag.Title = "Planos";
+}
+<h1 class="text-left" style="margin-bottom: 50px"><b>Planos</b></h1>
+
+@if (ViewData["plano"].ToString().Trim() == "0")
+{
+    <h3 style="margin-bottom: 50px">Cliente não aprovado na análise de crédito!</h3>
+    <form method="post">
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 1</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>48x R$ 210,00</p>
+            <p>Valor recebido: R$9.000,00</p>
+            <button class="btn btn-success" style="margin-top: 20px" disabled>Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 2</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>60x R$ 390,00</p>
+            <p>Valor recebido: R$20.000,00</p>
+            <button class="btn btn-success" style="margin-top: 20px" disabled>Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 3</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>72x R$ 480,00</p>
+            <p>Valor recebido: R$31.000,00</p>
+            <button class="btn btn-success" style="margin-top: 20px" disabled>Selecionar</button>
+        </div>
+    </form>
+}
+
+@if (ViewData["plano"].ToString().Trim() == "1")
+{<form method="post">
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 1</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>48x R$ 210,00</p>
+            <p>Valor recebido: R$9.000,00</p>
+            <button id="botaoPlano" class="btn btn-success" value="Plano 1" type="submit" name="botaoPlano" style="margin-top: 20px">Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 2</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>60x R$ 390,00</p>
+            <p>Valor recebido: R$20.000,00</p>
+            <button class="btn btn-success" style="margin-top: 20px" disabled>Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 3</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>72x R$ 480,00</p>
+            <p>Valor recebido: R$31.000,00</p>
+            <button class="btn btn-success" style="margin-top: 20px" disabled>Selecionar</button>
+        </div>
+    </form>
+}
+else if (ViewData["plano"].ToString().Trim() == "2")
+{
+    <form method="post">
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 1</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>48x R$ 210,00</p>
+            <p>Valor recebido: R$9.000,00</p>
+            <button id="botaoPlano" class="btn btn-success" value="Plano 1" type="submit" name="botaoPlano" style="margin-top: 20px">Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 2</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>60x R$ 390,00</p>
+            <p>Valor recebido: R$20.000,00</p>
+            <button id="botaoPlano" class="btn btn-success" value="Plano 2" type="submit" name="botaoPlano" style="margin-top: 20px">Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 3</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>72x R$ 480,00</p>
+            <p>Valor recebido: R$31.000,00</p>
+            <button class="btn btn-success" type="submit" style="margin-top: 20px" disabled>Selecionar</button>
+        </div>
+    </form>
+}
+else if (ViewData["plano"].ToString().Trim() == "3")
+{
+    <form method="post">
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 1</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>48x R$ 210,00</p>
+            <p>Valor recebido: R$9.000,00</p>
+            <button id="botaoPlano" class="btn btn-success" value="Plano 1" type="submit" name="botaoPlano" style="margin-top: 20px">Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 2</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>60x R$ 390,00</p>
+            <p>Valor recebido: R$20.000,00</p>
+            <button id="botaoPlano" class="btn btn-success" value="Plano 2" type="submit" name="botaoPlano" style="margin-top: 20px">Selecionar</button>
+        </div>
+        <div class="col-md-2 col-md-offset-1 text-center" style="background-color:lightgray; padding: 0 20px 20px; border-radius: 15px">
+            <div style="background-color: #5D2E8C; border-radius: 10px">
+                <h3 style="color:white; padding: 5px 0 5px 0">Plano 3</h3>
+            </div>
+            <p>Detalhes:</p>
+            <p>72x R$ 480,00</p>
+            <p>Valor recebido: R$31.000,00</p>
+            <button id="botaoPlano" class="btn btn-success" value="Plano 3" type="submit" name="botaoPlano" style="margin-top: 20px">Selecionar</button>
+        </div>
+    </form>
+}

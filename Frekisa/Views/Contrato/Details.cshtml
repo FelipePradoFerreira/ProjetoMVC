@@ -1,0 +1,58 @@
+﻿@model Frekisa.Models.Contrato
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contrato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.id_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.id_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.nome_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.nome_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionarios.id_funcionario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.id_funcionario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionarios.nome_funcionario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.nome_funcionario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plano)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a class="btn btn-primary" role="button" href="@Url.Action("Index")">Voltar</a>
+</p>

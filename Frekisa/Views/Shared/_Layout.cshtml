@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Frekisa</title>
+    <link rel="icon" href="~/Content/img/favicon_1.png" />
+    <link href="~/Content/css/EstiloFrekisa.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <script src="~/Content/js/jquery-3.6.0.min.js" type="texte/javascript"></script>
+    <script src="~/Content/js/bootstrap.min.js" type="text/javascript"></script>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @if (Session.Count != 0)
+                    {
+                        <a class="navbar-brand" href="@Url.Action("Service","Home")"><img id="logo" src="~/Content/img/frekisa.png"></a>
+                    }
+                    else
+                    {
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="logo" src="~/Content/img/frekisa.png"></a>
+                    }
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        @if (Session.Count != 0)
+                        {
+                            <li>@Html.ActionLink("Sair", "Logoff", "Home")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Sobre Nós", "About", "Home")</li>
+                            <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        }
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    @if (Session.Count != 0)
+    {
+        <div class="lado-a-lado">
+            <!-- Navbar Lateral -->
+            <div class="Nav-lateral">
+                <!-- Imagem, nome e ID funcionario -->
+                <div class="lado-a-lado">
+                    <div>
+                        <div>
+                            <img class="img-fun" src="~/Content/img/unnamed(19).png">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h5 class="text-center">@Session["Nome"].ToString()</h5>
+                            <h6 class="text-center">ID: @Session["ID"].ToString()</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões navbar lateral -->
+                <div class="text-center">
+                    <a href="@Url.Action("Index", "Clientes")"><button class="btn btn-default" type="submit">Clientes</button></a>
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("Index", "Contrato")"><button class="btn btn-default" type="submit">Contratos</button></a>
+                </div>
+                @if (Session["Perfil"].ToString().ToUpper().Trim() == "TRUE")
+                {
+                    <div class="text-center">
+                        <a href="@Url.Action("Index", "Funcionarios")"><button class="btn btn-default" type="submit">Funcionários</button></a>
+                    </div>
+                }
+            </div>
+            <div class="Area-servico" style="margin: 0 40px 0 40px">
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+
+        <div>
+            @RenderBody()
+        </div>
+    }
+
+    @Scripts.Render("~/bundles/inputmask")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

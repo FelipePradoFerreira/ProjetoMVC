@@ -1,0 +1,67 @@
+﻿@model Frekisa.Models.Clientes
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes Cientes</h2>
+
+<div class="jumbotron">
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpf_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpf_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefone_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefone_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.renda_mensal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.renda_mensal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endereco)
+        </dd>
+
+    </dl>
+</div>
+
+
+    <a class="btn btn-primary" role="button" href="@Url.Action("Edit", new { id = Model.id_cliente })">Editar</a>
+    <a class="btn btn-primary" role="button" href="@Url.Action("Index")">Voltar</a>
+
